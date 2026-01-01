@@ -4,16 +4,13 @@ import 'package:bookly_clean_arch/features/home/domain/entities/book_entity.dart
 import 'package:bookly_clean_arch/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 
-class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
+class FetchNewestBooksUseCase extends UseCase<List<BookEntity>, void> {
   final HomeRepo homeRepo;
 
-  FetchFeaturedBooksUseCase({required this.homeRepo});
-
+  FetchNewestBooksUseCase({required this.homeRepo});
   @override
-  Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) async {
-    //check user permesion code
-    return await homeRepo.fetchFeaturedBooks();
+  Future<Either<Failure, List<BookEntity>>> call([void param]) {
+    //here we make the permsions of user
+    return homeRepo.fetchNewestBooks();
   }
 }
-
-class NoParam {}
