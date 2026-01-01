@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 void main() {
   runApp(const BooklyCleanArch());
 }
+
 class BooklyCleanArch extends StatelessWidget {
   const BooklyCleanArch({super.key});
   @override
@@ -20,5 +21,3 @@ class BooklyCleanArch extends StatelessWidget {
     );
   }
 }
-
-

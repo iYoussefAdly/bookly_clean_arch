@@ -11,15 +11,15 @@ class CustomSearchTextField extends StatelessWidget {
         suffixIcon: Opacity(opacity: 0.6, child: Icon(Icons.search)),
         hintText: "Search..",
         enabledBorder: buildBorder(),
-        focusedBorder: buildBorder()
+        focusedBorder: buildBorder(),
       ),
     );
   }
 
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-        borderSide: BorderSide(color: Colors.white.withOpacity(0.6)),
-      );
+      borderRadius: BorderRadius.circular(10),
+      borderSide: BorderSide(color: Colors.white.withOpacity(0.6)),
+    );
   }
 }

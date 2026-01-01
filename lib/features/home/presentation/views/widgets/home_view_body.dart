@@ -3,6 +3,7 @@ import 'package:bookly_clean_arch/features/home/presentation/views/widgets/custo
 import 'package:bookly_clean_arch/features/home/presentation/views/widgets/feature_item_list_view.dart';
 import 'package:bookly_clean_arch/features/home/presentation/views/widgets/newest_list_view.dart';
 import 'package:flutter/cupertino.dart';
+
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
@@ -31,11 +32,11 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         SliverFillRemaining(
-          child:Padding(
+          child: Padding(
             padding: const EdgeInsets.only(left: 30),
             child: NewestListView(),
           ),
-        )
+        ),
       ],
     );
   }

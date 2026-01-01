@@ -3,7 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BookRatingItem extends StatelessWidget {
-  const BookRatingItem({super.key,this.mainAxisAlignment=MainAxisAlignment.start});
+  const BookRatingItem({
+    super.key,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+  });
   final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {

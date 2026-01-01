@@ -19,9 +19,7 @@ class SearchViewBody extends StatelessWidget {
             "Search result",
             style: Styles.textStyle18.copyWith(fontWeight: FontWeight.normal),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           Expanded(child: SearchResultListView()),
         ],
       ),

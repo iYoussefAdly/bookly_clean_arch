@@ -5,10 +5,7 @@ import 'package:bookly_clean_arch/features/home/presentation/views/widgets/custo
 import 'package:flutter/cupertino.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({
-    super.key,
-    required this.width,
-  });
+  const BookDetailsSection({super.key, required this.width});
 
   final double width;
 
@@ -27,9 +24,7 @@ class BookDetailsSection extends StatelessWidget {
           opacity: 0.7,
           child: Text(
             "Rudyard Kipling",
-            style: Styles.textStyle18.copyWith(
-              fontWeight: FontWeight.w400,
-            ),
+            style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w400),
           ),
         ),
         SizedBox(height: 12),

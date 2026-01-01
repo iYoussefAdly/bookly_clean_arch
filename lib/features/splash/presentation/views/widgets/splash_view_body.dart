@@ -3,6 +3,7 @@ import 'package:bookly_clean_arch/core/utils/asset_data.dart';
 import 'package:bookly_clean_arch/features/splash/presentation/views/widgets/slide_text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 

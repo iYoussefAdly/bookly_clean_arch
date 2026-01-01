@@ -7,7 +7,7 @@ class FeatureItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height*0.24,
+      height: MediaQuery.of(context).size.height * 0.24,
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,

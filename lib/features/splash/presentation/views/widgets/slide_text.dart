@@ -3,10 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class SlideText extends StatelessWidget {
-  const SlideText({
-    super.key,
-    required this.slideAnimation,
-  });
+  const SlideText({super.key, required this.slideAnimation});
 
   final Animation<Offset> slideAnimation;
 

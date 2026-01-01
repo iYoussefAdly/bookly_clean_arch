@@ -26,28 +26,38 @@ class BookItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width*0.44,
+                      width: MediaQuery.of(context).size.width * 0.44,
                       child: Text(
                         "Harry Potter and the Goblet of fire",
-                        style: Styles.textStyle20.copyWith(fontFamily: kGtSectraFine),
+                        style: Styles.textStyle20.copyWith(
+                          fontFamily: kGtSectraFine,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    SizedBox(height: 13,),
-                    Text("J.K. Rowling",style: Styles.textStyle14.copyWith(color: Color(0xffB1AFB6)),),
-                    SizedBox(
-                      height: 8,
+                    SizedBox(height: 13),
+                    Text(
+                      "J.K. Rowling",
+                      style: Styles.textStyle14.copyWith(
+                        color: Color(0xffB1AFB6),
+                      ),
                     ),
+                    SizedBox(height: 8),
                     Expanded(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("19.99 €",style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
-                          BookRatingItem()
+                          Text(
+                            "19.99 €",
+                            style: Styles.textStyle20.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          BookRatingItem(),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
