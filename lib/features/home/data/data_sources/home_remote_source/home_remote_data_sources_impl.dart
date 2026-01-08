@@ -4,6 +4,7 @@ import 'package:bookly_clean_arch/core/utils/functions/save_books.dart';
 import 'package:bookly_clean_arch/features/home/data/data_sources/home_remote_source/home_remote_data_source.dart';
 import 'package:bookly_clean_arch/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_clean_arch/features/home/domain/entities/book_entity.dart';
+
 class HomeRemoteDataSourcesImpl extends HomeRemoteDataSource {
   final ApiService apiService;
   HomeRemoteDataSourcesImpl({required this.apiService});
@@ -13,8 +14,10 @@ class HomeRemoteDataSourcesImpl extends HomeRemoteDataSource {
       endPoint: "volumes?Filtering=free-ebooks&q=subject:programming",
     );
     List<BookEntity> books = getBooksList(data);
+    await saveBooks(books, kFeaturedBooks);
     return books;
   }
+
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
     var data = await apiService.get(
@@ -22,7 +25,7 @@ class HomeRemoteDataSourcesImpl extends HomeRemoteDataSource {
           "volumes?Filtering=free-ebooks&q=subject:programming&Sorting=newest",
     );
     List<BookEntity> books = getBooksList(data);
-    await saveBooks(books,kFeaturedBooks);
+    await saveBooks(books, kNewestBooks);
     return books;
   }
 
