@@ -1,9 +1,10 @@
+import 'package:bookly_clean_arch/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_clean_arch/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/cupertino.dart';
 
 class FeatureItemListView extends StatelessWidget {
-  const FeatureItemListView({super.key});
-
+  const FeatureItemListView({super.key, required this.books});
+  final List<BookEntity> books;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,7 +16,7 @@ class FeatureItemListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: CustomImage(),
+            child: CustomImage(image: books[index].image??''),
           );
         },
       ),

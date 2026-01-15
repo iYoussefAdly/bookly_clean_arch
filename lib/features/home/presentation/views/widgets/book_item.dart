@@ -19,7 +19,7 @@ class BookItem extends StatelessWidget {
           height: 160,
           child: Row(
             children: [
-              CustomImage(),
+              CustomImage(image: '',),
               SizedBox(width: 30),
               Expanded(
                 child: Column(
