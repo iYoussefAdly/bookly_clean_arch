@@ -14,6 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   saveServiceLocator();
@@ -32,7 +33,7 @@ class BooklyCleanArch extends StatelessWidget {
         BlocProvider(
           create: (context) => FeaturedBooksCubit(
             FetchFeaturedBooksUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
-          ),
+          )..featuredBooksUseCase,
         ),
         BlocProvider(
           create: (context) => NewestBooksCubit(
