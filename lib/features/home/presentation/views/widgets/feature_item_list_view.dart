@@ -5,10 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeatureItemListView extends StatefulWidget {
-  const FeatureItemListView({
-    super.key,
-    required this.books,
-  });
+  const FeatureItemListView({super.key, required this.books});
 
   final List<BookEntity> books;
 
@@ -19,12 +16,13 @@ class FeatureItemListView extends StatefulWidget {
 class _FeatureItemListViewState extends State<FeatureItemListView> {
   final ScrollController _scrollController = ScrollController();
   bool _hasReached70Percent = false;
-
+  var nextPage = 1;
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
 
-    _scrollController.addListener(() {
+    _scrollController.addListener(() async{
       if (!_scrollController.hasClients) return;
 
       final current = _scrollController.position.pixels;
@@ -37,15 +35,23 @@ class _FeatureItemListViewState extends State<FeatureItemListView> {
       if (progress >= 0.7 && !_hasReached70Percent) {
         _hasReached70Percent = true;
 
-        context.read<FeaturedBooksCubit>().fetchFeaturedBooks();
+        if (!isLoading) {
+          isLoading = true;
+         await context.read<FeaturedBooksCubit>().fetchFeaturedBooks(
+            pageNumber: nextPage++,
+          );
+          isLoading = false;
+        }
       }
     });
   }
+
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -58,9 +64,7 @@ class _FeatureItemListViewState extends State<FeatureItemListView> {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: CustomImage(
-              image: widget.books[index].image ?? '',
-            ),
+            child: CustomImage(image: widget.books[index].image ?? ''),
           );
         },
       ),
