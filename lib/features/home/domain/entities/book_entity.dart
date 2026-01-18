@@ -24,4 +24,5 @@ class BookEntity {
     required this.price,
     required this.rating,
   });
+
 }

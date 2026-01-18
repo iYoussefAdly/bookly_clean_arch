@@ -12,7 +12,7 @@ class NewestListViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         if (state is NewestBooksSuccess) {
-          return NewestListView();
+          return NewestListView(books: state.books,);
         } else if (state is NewestBooksFailure) {
           return Center(child: Text(state.errorMessage));
         } else {

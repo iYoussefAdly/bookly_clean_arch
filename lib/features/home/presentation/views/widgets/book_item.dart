@@ -7,8 +7,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
-
+  const BookItem({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.price,
+    required this.authorName, required this.rating,
+  });
+  final String image;
+  final String title;
+  final num price;
+  final String authorName;
+  final num rating;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +29,7 @@ class BookItem extends StatelessWidget {
           height: 160,
           child: Row(
             children: [
-              CustomImage(image: '',),
+              CustomImage(image: image),
               SizedBox(width: 30),
               Expanded(
                 child: Column(
@@ -28,7 +38,7 @@ class BookItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.44,
                       child: Text(
-                        "Harry Potter and the Goblet of fire",
+                        title,
                         style: Styles.textStyle20.copyWith(
                           fontFamily: kGtSectraFine,
                         ),
@@ -38,7 +48,7 @@ class BookItem extends StatelessWidget {
                     ),
                     SizedBox(height: 13),
                     Text(
-                      "J.K. Rowling",
+                      authorName,
                       style: Styles.textStyle14.copyWith(
                         color: Color(0xffB1AFB6),
                       ),
@@ -49,12 +59,12 @@ class BookItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "19.99 €",
+                            "$price €",
                             style: Styles.textStyle20.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          BookRatingItem(),
+                          BookRatingItem(rating: rating),
                         ],
                       ),
                     ),

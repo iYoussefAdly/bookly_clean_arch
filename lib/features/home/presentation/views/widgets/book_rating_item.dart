@@ -6,8 +6,10 @@ class BookRatingItem extends StatelessWidget {
   const BookRatingItem({
     super.key,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.rating,
   });
   final MainAxisAlignment mainAxisAlignment;
+  final num rating;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,7 +18,7 @@ class BookRatingItem extends StatelessWidget {
         Icon(Icons.star, color: Color(0xffF5D44C), size: 20),
         SizedBox(width: 6),
         Text(
-          "4.8",
+          "$rating",
           style: Styles.textStyle16.copyWith(fontWeight: FontWeight.normal),
         ),
         SizedBox(width: 7),
