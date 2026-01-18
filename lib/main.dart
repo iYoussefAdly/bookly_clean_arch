@@ -38,7 +38,7 @@ class BooklyCleanArch extends StatelessWidget {
         BlocProvider(
           create: (context) => NewestBooksCubit(
             FetchNewestBooksUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
-          ),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
